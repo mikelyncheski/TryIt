@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Data Attributes</title>  
+</head>
+
+<body>
+    <div id="msglist" data-user="Bob" data-list-size="5" data-max-age="180">-</div>
+
+    <ul>
+        <li data-animal-type="bird">Owl</li>
+        <li data-animal-type="fish">Salmon</li> 
+        <li data-animal-type="spider">Tarantula</li> 
+    </ul>
+
+
+    <script>
+    //Finally, we have the HTML5 dataset API which returns a DOMStringMap object. You should note that data-attribute names are mapped by dropping the data- prefix, removing hyphens and converting to camelCase, e.g. 
+    
+    var msglist = document.getElementById("msglist");
+    // msglist.innerText = "Hi " + msglist.innerText;  // Do not use; introduced by Microsoft and is not a W3C standard.
+    // msglist.innerHTML = "Hi " + msglist.innerHTML;  // Use this
+    msglist.dataset.maxAge = parseInt(msglist.dataset.maxAge) + 7;
+    msglist.innerHTML = msglist.dataset.user + " has " + msglist.dataset.listSize + " items with a max age of " + msglist.dataset.maxAge + '.';
+    //msglist.dataset.listSize = +show+3;
+    </script>
+</body>
+</html>
