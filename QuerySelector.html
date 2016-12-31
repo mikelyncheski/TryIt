@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Query Selectors</title>
+</head>
+
+<body>
+  <div>Open the console log.</div>
+
+  <div id="main">
+    <div class="pictureContainer">
+      <img class="theimage" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/96/139.jpg" />
+    </div>
+    <div class="pictureContainer">
+      <img class="theimage" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/139.jpg" />
+    </div>
+    <div class="pictureContainer">
+      <img class="theimage" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg" />
+    </div>
+    <div class="pictureContainer">
+      <img class="theimage" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" width="100%" />
+    </div>
+  </div>
+
+  <script>
+    // https://www.kirupa.com/html5/finding_elements_dom_using_querySelector.htm
+    // Tt Really is the CSS Selector Syntax
+
+    const main = document.querySelector("#main");   // Get by id
+    console.log(main);
+
+    // Returns a node list (like an array but not really)
+    let images = document.querySelectorAll(".theimage");  // Get by class
+    console.log(images);
+
+    images.forEach(i => console.log(i.src));
+
+    for (var i = 0; i < images.length; i++) {
+      var image = images[i];
+      console.log(image.getAttribute("src"));
+    }
+
+    images = document.querySelectorAll("img[width='100%']"); // element with attribute selector
+    console.log("100%: " + images[0].src);
+
+    // Query starting at specific node
+    const nodes = main.querySelectorAll("img");
+    console.log(nodes);
+
+  </script>
+</body>
+
+</html>
