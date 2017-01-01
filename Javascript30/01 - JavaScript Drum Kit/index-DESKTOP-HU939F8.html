@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Drum Kit!</title>
+</head>
+
+<body>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd-->
+            <kbd>A</kbd>
+            <span class="sound">clap</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">kick</span>
+        </div>
+    </div>
+
+<!-- 
+    TODO
+    learn querySelector
+    learn audio element
+    Try moving this into above block 
+-->
+
+    <audio data-key="65" src="sounds/clap.wav" />   
+    <audio data-key="83" src="sounds/hihat.wav" />
+    <audio data-key="68" src="sounds/kick.wav" />
+
+    <script>
+        window.addEventListener("keydown", (e) => {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);  // Select audio element with matching attribute 
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);  // Select element with key class with matching attribute 
+            if (!audio) return;
+            audio.currentTime = 0;  // If already playing, stop it and play the new request.
+            audio.play();
+            console.log(key);
+            key.classList.add("playing");   // also .remove and .toggle
+            console.log(key);
+        });
+    </script>
+</body>
+
+</html>

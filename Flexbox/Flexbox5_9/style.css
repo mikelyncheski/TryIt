@@ -28,15 +28,48 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 .box10 { background:#16a085;}
 
 
+
 .container {
   display:flex;
   justify-content: center;      /* justify-content: aligns items on the MAIN axis */
+  align-items: center;          /* Aligns items on the CROSS axis */
   border: 10px solid mistyrose;
+  height: 100vh;
 }
 
-.Xbox {
-  margin: 0 10px;
+
+/*
+.container { align-items: baseline; } /* Aligns to the bottom of the font *-/
+.box1 { font-size: 30px; }
+.box4 { font-size: 200px; }
+.box7 { font-size: 150px;}
+.box7 { font-size: 10px;}
+*/
+
+/*
+.container {
+  justify-content: unset;
+  align-items: unset;
+  flex-wrap: wrap;
+  align-content: space-around;   /* For wrapping, otherwise no effect; what to do with the extra space on the CROSS axis *-/
 }
+.box {
+  width: 33.33333%;
+}
+*/
+
+
+.container {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.box { flex-grow: 1; }
+.box4 { align-self: stretch;}
+.box5 { align-self: center;}
+.box8 { align-self: flex-end;}
+
+
+
 
 
 /*
